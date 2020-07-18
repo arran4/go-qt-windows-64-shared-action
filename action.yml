@@ -1,0 +1,6 @@
+# action.yml
+name: 'go qt windows 64 shared compile'
+description: 'go qt windows 64 shared compile'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
