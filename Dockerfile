@@ -6,4 +6,6 @@ RUN apt-get update \
 RUN     go get github.com/therecipe/qt github.com/sirupsen/logrus golang.org/x/tools/imports \
     && go install -v -tags=no_env github.com/therecipe/qt/cmd/qtdeploy
 ENV PATH="${HOME}/go/bin/:${PATH}"
+ENV GO111MODULE=off
+RUN go get -v github.com/therecipe/qt/cmd/... && $(go env GOPATH)/bin/qtsetup test && $(go env GOPATH)/bin/qtsetup -test=false
 ENTRYPOINT ["/bin/bash", "/entrypoint.sh"]
